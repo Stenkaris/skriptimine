@@ -23,3 +23,11 @@ git remote add skriptimine git@github.com:kasutajanimi/reponimi.git
 
 f) git remote kontroll
 git remote -v
+
+b) git remote kontroll
+git remote -v
+
+põhikasutamine:
+
+a) pane fail jälgimisele:
+git add failinimi
