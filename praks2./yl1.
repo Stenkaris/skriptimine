@@ -1,0 +1,11 @@
+#!/bin/bash
+# Skripti eesmärk: Väljastada kasutajale tervitussõnum koos kasutajanimega
+
+# 1. Väljasta "Tere, " ilma reavahetuseta
+echo -n "Tere, "
+
+# 2. Tekita kasutajanimi vastava käsu kombinatsiooni(de) abil ning väljasta ta reavahetuseta
+echo -n "$(whoami)"
+
+# 3. Väljasta "!" reavahetusega
+echo "!"
