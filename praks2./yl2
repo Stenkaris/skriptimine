@@ -1,12 +1,17 @@
 #!/bin/bash
-# Skripti eesmärk: Väljastada kasutajale tervitussõnum koos kasutajanimega
-# Näiteks: "Tere, Sten!" kui kasutajanimi on "Sten"
+# Skripti eesmärk: Väljastada kasutajale kuupäeva ja ajaga seotud informatsioon
 
-# 1. Väljasta "Tere, " ilma reavahetuseta
-echo -n "Tere, "
+# 1. Väljasta tänane kuupäev formaadis: "Tänane kuupäev: YYYY-MM-DD"
+echo "Tänane kuupäev: $(date +%Y-%m-%d)"
 
-# 2. Tekita kasutajanimi suurte tähtedega ja väljasta ta reavahetuseta
-echo -n "$(echo $(whoami) | awk '{print toupper(substr($0, 1, 1)) tolower(substr($0, 2))}')"
+# 2. Väljasta praegune kellaaeg formaadis: "Kell on: HH:MM:SS"
+echo "Kell on: $(date +%H:%M:%S)"
 
-# 3. Väljasta "!" reavahetusega
-echo "!"
+# 3. Väljasta praegune nädalapäev formaadis: "Täna on: Nädalapäev"
+echo "Täna on: $(date +%A)"
+
+# 4. Väljasta aasta päev formaadis: "See on aasta päev number: XXX"
+echo "See on aasta päev number: $(date +%j)"
+
+# 5. Väljasta praegune nädalanumber formaadis: "Nädal number: XX"
+echo "Nädal number: $(date +%V)"
