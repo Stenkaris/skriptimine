@@ -1,0 +1,17 @@
+#!/bin/bash
+# Skripti eesmärk: Väljastada kasutajale kuupäeva ja ajaga seotud informatsioon
+
+# 1. Väljasta tänane kuupäev formaadis: "Tänane kuupäev: YYYY-MM-DD"
+echo "Tänane kuupäev: $(date +%Y-%m-%d)"
+
+# 2. Väljasta praegune kellaaeg formaadis: "Kell on: HH:MM:SS"
+echo "Kell on: $(date +%H:%M:%S)"
+
+# 3. Väljasta praegune nädalapäev formaadis: "Täna on: Nädalapäev"
+echo "Täna on: $(date +%A)"
+
+# 4. Väljasta aasta päev formaadis: "See on aasta päev number: XXX"
+echo "See on aasta päev number: $(date +%j)"
+
+# 5. Väljasta praegune nädalanumber formaadis: "Nädal number: XX"
+echo "Nädal number: $(date +%V)"
