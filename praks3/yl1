@@ -1,0 +1,9 @@
+#!/bin/bash
+# Skripti eesmärk: Küsida kasutajalt tema täisnimi ja tervitada teda
+
+# Küsime kasutajalt ees- ja perenime
+echo -n "Sisesta oma ees- ja perenimi: "
+read eesnimi perenimi
+
+# Tervitame kasutajat täisnimega
+echo "Tere tulemast, $eesnimi $perenimi!"
