@@ -1,0 +1,17 @@
+#!/bin/bash
+# Skripti eesmärk: Luua ja ühendada muutujad ning väljastada täislauset
+
+# Luuakse muutuja aasta ja antakse sellele väärtuseks 2016
+aasta=2016
+
+# Luuakse muutuja president ja antakse sellele väärtuseks "Kersti Kaljulaid"
+president="Kersti Kaljulaid"
+
+# Luuakse muutuja lause_keskosa ja antakse sellele väärtuseks ". aastal valiti Eesti presidendiks "
+lause_keskosa=". aastal valiti Eesti presidendiks "
+
+# Luuakse muutuja lause ja ühendatakse muutujate väärtused
+lause="$aasta$lause_keskosa$president"
+
+# Väljastatakse muutuja lause väärtus ekraanile
+echo "$lause"
