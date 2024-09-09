@@ -15,3 +15,6 @@ echo "See on aasta päev number: $(date +%j)"
 
 # 5. Väljasta praegune nädalanumber formaadis: "Nädal number: XX"
 echo "Nädal number: $(date +%V)"
+
+echo "Kalender:"
+cal
