@@ -1,19 +1,21 @@
 #!/bin/bash
-# Skripti eesmärk: Arvutada ühe nädala eeldatav ajakulu ainepunktide alusel ja ümardada see ülespoole täisarvuni
-
-# Küsime kasutajalt ainepunktide arvu
+# Skript arvutab nädala eeldatava ajakulu ainepunktide ja nädalate arvu põhjal
+ 
+# Ainepunktide ja nädalate arvu küsimine kasutajalt
 echo -n "Sisesta ainepunktide arv: "
 read ainepunktid
-
-# Küsime kasutajalt nädalate arvu
 echo -n "Sisesta nädalate arv: "
-read nadalat
-
-# Arvutame koguaeg = ainepunktid * 26 (tundi)
-koguaeg=$(echo "$ainepunktid * 26" | bc)
-
-# Arvutame nädala ajakulu = koguaeg / nädalate arv ja ümardame ülespoole
-ajakulu=$(echo "($koguaeg / $nadalat) + 0.9" | bc)
-
-# Väljastame tulemuse
-echo "Ühe nädala eeldatav ajakulu on $ajakulu tundi."
+read nadalad
+ 
+# Ainepunkti ajakulu konstandi määramine
+AINEPUNKT_AJAKULU=26
+ 
+# Kokku ajakulu arvutamine
+kokku_aeg=$(($ainepunktid * $AINEPUNKT_AJAKULU))
+ 
+# Nädala ajakulu arvutamine ja ülespoole ümardamine
+nadalane_aeg=$(echo "scale=2; $kokku_aeg / $nadalad" | bc)
+nadalane_aeg_ymardatud=$(echo "($nadalane_aeg + 0.9)/1" | bc)
+ 
+# Tulemus väljund ekraanile
+echo "Ühe nädala eeldatav ajakulu on $nadalane_aeg_ymardatud tundi"
