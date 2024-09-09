@@ -1,0 +1,12 @@
+#!/bin/bash
+# Skripti eesmärk: Väljastada kasutajale tervitussõnum koos kasutajanimega
+# Näiteks: "Tere, Sten!" kui kasutajanimi on "Sten"
+
+# 1. Väljasta "Tere, " ilma reavahetuseta
+echo -n "Tere, "
+
+# 2. Tekita kasutajanimi suurte tähtedega ja väljasta ta reavahetuseta
+echo -n "$(echo $(whoami) | awk '{print toupper(substr($0, 1, 1)) tolower(substr($0, 2))}')"
+
+# 3. Väljasta "!" reavahetusega
+echo "!"
