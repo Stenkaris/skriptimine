@@ -1,0 +1,25 @@
+#!/bin/bash
+# See skript määrab kasutaja vanuse põhjal, kas ta on laps, nooruk, täiskasvanu või senjoor.
+
+# Küsime kasutajalt vanuse
+echo -n "Sisesta (oma) vanus: "
+read vanus
+
+# Kontrollime, kas sisestatud vanus on täisarv ja positiivne
+if ! [[ "$vanus" =~ ^[0-9]+$ ]]; then
+    echo "Vigane sisend. Palun sisesta positiivne täisarv."
+    exit 1
+fi
+
+# Vanuse põhjal määrame kasutaja elufaasid
+if [ $vanus -ge 0 -a $vanus -lt 11 ]; then
+    echo "Oled laps"
+elif [ $vanus -ge 11 -a $vanus -lt 18 ]; then
+    echo "Oled nooruk"
+elif [ $vanus -ge 18 -a $vanus -lt 63 ]; then
+    echo "Oled täiskasvanu"
+elif [ $vanus -ge 63 ]; then
+    echo "Oled vanur"
+else
+    echo "Vigane sisend"
+fi
