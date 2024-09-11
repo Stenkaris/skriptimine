@@ -1,0 +1,20 @@
+#!/bin/bash
+# See skript arvutab, mitu bussi on vaja reisijate jaoks, arvestades busside kohtade arvu.
+# Kui reisijad ei mahu täpselt täisbussidesse, lisatakse juurde veel üks buss.
+
+# Küsime kasutajalt reisijate arvu ja kohtade arvu bussis
+echo -n "Sisesta reisijate arv: "
+read reisijad
+echo -n "Sisesta kohtade arv bussis: "
+read kohad
+
+# Arvutame, mitu bussi on vaja
+busside_arv=$((reisijad / kohad))
+
+# Kontrollime, kas on ülejäänud reisijaid, kes ei mahu täisbussidesse
+if [ $((reisijad % kohad)) -ne 0 ]; then
+    busside_arv=$((busside_arv + 1))
+fi
+
+# Väljasta tulemus
+echo "Kokku on vaja $busside_arv bussi"
