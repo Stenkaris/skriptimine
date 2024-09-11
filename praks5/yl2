@@ -1,0 +1,23 @@
+#!/bin/bash
+# See skript määrab sisestatud kuu numbri põhjal, milline aastaaeg on.
+
+# Küsime kasutajalt kuu numbrit
+echo -n "Sisesta kuu number (1-12): "
+read kuu
+
+# Kontrollime, kas sisestatud kuu number on täisarv ja vahemikus 1 kuni 12
+if ! [[ "$kuu" =~ ^[1-9]$|^1[0-2]$ ]]; then
+    echo "Vigane sisend. Palun sisesta kuu number vahemikus 1 kuni 12."
+    exit 1
+fi
+
+# Määrame aastaaja kuu numbri põhjal
+if [ $kuu -eq 12 ] || [ $kuu -eq 1 ] || [ $kuu -eq 2 ]; then
+    echo "Praegu on talv"
+elif [ $kuu -ge 3 ] && [ $kuu -le 5 ]; then
+    echo "Praegu on kevad"
+elif [ $kuu -ge 6 ] && [ $kuu -le 8 ]; then
+    echo "Praegu on suvi"
+elif [ $kuu -ge 9 ] && [ $kuu -le 11 ]; then
+    echo "Praegu on sügis"
+fi
