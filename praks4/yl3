@@ -1,0 +1,26 @@
+#!/bin/bash
+# Skript, mis lubab kasutajal valida operatsioonisüsteemi ja kasutab sisseehitatud if-tingimuslauset.
+
+# Muutuja osch algväärtustamine
+osch=0
+
+# Valikute kuvamine
+echo "1. Unix (Sun Os)"
+echo "2. Linux (Red Hat)"
+
+# Kasutajalt valiku küsimine
+echo -n " Vali operatsioonisüsteem [1 or 2]? "
+read osch
+
+# Tingimuslause valiku kontrollimiseks
+if [ $osch -eq 1 ] ; then
+    echo "Sa valisid (Sun Os)"
+else
+    #### Sisemine if - kontrollime, kas valik on 2 ####
+    if [ $osch -eq 2 ] ; then
+        echo " Sa valisid  Linux (Red Hat)"
+    else
+        # Kui valik ei ole 1 ega 2, siis
+        echo " Mis sulle ei meeldi  Unix/Linux OS."
+    fi
+fi
