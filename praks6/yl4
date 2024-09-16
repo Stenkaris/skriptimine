@@ -1,0 +1,39 @@
+#!/bin/bash
+# See skript kontrollib, kas sisestatud arv on algarv
+
+# Küsime kasutajalt arvu sisestamist
+echo -n "Sisesta suvaline arv: "
+read number
+
+# Kontrollime, kas sisestatud väärtus on positiivne täisarv
+if ! [[ "$number" =~ ^[0-9]+$ ]]; then
+    echo "Viga: Palun sisesta positiivne täisarv."
+    exit 1
+fi
+
+# Üks ja väiksemad arvud ei ole algarvud
+if [ "$number" -le 1 ]; then
+    echo "$number ei ole algarv"
+    exit 0
+fi
+
+# Algoritm algarvu tuvastamiseks
+is_prime=1  # Oletame, et arv on algarv
+
+# Jagame arvu kõigi arvudega alates 2-st kuni ruutjuureni arvust
+i=2
+while [ $i -lt $number ]
+do
+    if [ $(( number % i )) -eq 0 ]; then
+        is_prime=0  # Arv ei ole algarv
+        break
+    fi
+    ((i++))
+done
+
+# Kontrollime tulemust
+if [ $is_prime -eq 1 ]; then
+    echo "$number on algarv"
+else
+    echo "$number ei ole algarv"
+fi
