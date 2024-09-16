@@ -1,0 +1,18 @@
+#!/bin/bash
+# This script outputs the name of the month based on the number entered by the user
+
+# Declare an array of months
+kuud=("Jaanuar" "Veebruar" "Märts" "Aprill" "Mai" "Juuni" "Juuli" "August" "September" "Oktoober" "November" "Detsember")
+
+# Prompt the user to enter a month number
+echo -n "Sisesta kuu number (1-12): "
+read month
+
+# Check if input is a valid number
+if ! [[ "$month" =~ ^[0-9]+$ ]] || [ "$month" -lt 1 ] || [ "$month" -gt 12 ]; then
+    echo "Viga: Palun sisesta kuu number vahemikus 1 kuni 12."
+    exit 1
+fi
+
+# Adjust month index (array indices start from 0, so subtract 1)
+echo "See on ${kuud[$((month-1))]}"
