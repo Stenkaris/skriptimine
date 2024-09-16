@@ -1,0 +1,23 @@
+#!/bin/bash
+# This script greets the user based on the time of the day they input
+
+# Prompt the user to enter the hour of the day
+echo -n "Sisesta aja väärtus (0-23): "
+read hour
+
+# Check if the input is a valid number
+if ! [[ "$hour" =~ ^[0-9]+$ ]] || [ "$hour" -lt 0 ] || [ "$hour" -gt 23 ]; then
+    echo "Viga: Palun sisesta tund vahemikus 0 kuni 23."
+    exit 1
+fi
+
+# Greet based on the time input
+if [ "$hour" -ge 6 ] && [ "$hour" -lt 12 ]; then
+    echo "Tere hommikust!"
+elif [ "$hour" -ge 12 ] && [ "$hour" -lt 18 ]; then
+    echo "Tere päevast!"
+elif [ "$hour" -ge 18 ] && [ "$hour" -lt 22 ]; then
+    echo "Tere õhtust!"
+else
+    echo "Head ööd!"
+fi
