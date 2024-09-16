@@ -1,0 +1,19 @@
+#!/bin/bash
+# Skript arvutab täisarvu numbrite summa
+
+echo -n "Sisesta mingi täisarv: "
+read arv
+
+# Teeme absoluutväärtuse (kui on negatiivne)
+arv=${arv#-}
+
+summa=0
+
+# Arvutame summa
+while [ $arv -ne 0 ]; do
+    jaak=$(($arv % 10))   # Leiame viimase numbri
+    summa=$(($summa + $jaak))   # Lisame viimase numbri summale
+    arv=$(($arv / 10))    # Jätame viimase numbri ära
+done
+
+echo "Sisestatud arvu numbrite summa on: $summa"
