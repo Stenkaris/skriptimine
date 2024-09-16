@@ -1,0 +1,15 @@
+#!/bin/bash
+# Küsib ridade arvu
+read -p "Sisesta ridade arv: " ridade_arv
+
+# Väljastab tärnid iga rea jaoks
+for (( i = 1; i <= ridade_arv; i++ ))
+do
+    # Väljastab rea numbri ja vastava arvu tärne
+    echo -n "$i. "
+    for (( j = 1; j <= i; j++ ))
+    do
+        echo -n "* "
+    done
+    echo ""  # Reavahetus
+done
