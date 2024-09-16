@@ -1,0 +1,15 @@
+#!/bin/bash
+# Küsib ridade ja tärnide arvu
+read -p "Sisesta ridade arv: " ridade_arv
+read -p "Sisesta tärnide arv reas: " tarnide_arv
+
+# Väline tsükkel kontrollib ridu
+for (( i = 1; i <= ridade_arv; i++ ))
+do
+    # Sisemine tsükkel kontrollib veerge (tärnide arvu reas)
+    for (( j = 1; j <= tarnide_arv; j++ ))
+    do
+        echo -n "* "  # Väljastab tärni ja jätkab samal real
+    done
+    echo ""  # Reavahetus peale iga rea tärnide väljastamist
+done
