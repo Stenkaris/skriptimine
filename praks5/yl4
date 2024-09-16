@@ -1,0 +1,24 @@
+#!/bin/bash
+# This script greets the user based on the system time and includes the user's name
+
+# Get the current hour from the system
+hour=$(date +%H)
+# Get the current username
+user=$(whoami)
+
+# Check if the hour is valid (although date will give valid values)
+if ! [[ "$hour" =~ ^[0-9]+$ ]] || [ "$hour" -lt 0 ] || [ "$hour" -gt 23 ]; then
+    echo "Viga: Palun sisesta õige tund vahemikus 0 kuni 23."
+    exit 1
+fi
+
+# Greet based on the time
+if [ "$hour" -ge 6 ] && [ "$hour" -lt 12 ]; then
+    echo "Tere hommikust, $user!"
+elif [ "$hour" -ge 12 ] && [ "$hour" -lt 18 ]; then
+    echo "Tere päevast, $user!"
+elif [ "$hour" -ge 18 ] && [ "$hour" -lt 22 ]; then
+    echo "Tere õhtust, $user!"
+else
+    echo "Head ööd, $user!"
+fi
