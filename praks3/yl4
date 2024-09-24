@@ -1,20 +1,19 @@
 #!/bin/bash
-# Skripti eesmärk: Arvutada, mitu bussi täitub täielikult ja mitu inimest jääb üle
+# Mitu reisijat
+echo "Mitu reisijat on ühes grupis: "
+read mitu_reisijat
+# Mitu kohta
+echo "Mitu kohta on ühes bussis: "
+read mitu_kohti
+# Arvuta täisbussid ja mahajääjad
 
-# Küsime kasutajalt reisijate arvu
-echo -n "Sisesta reisijate arv grupis: "
-read reisijad
+taidetud_bussid=$((mitu_reisijat / mitu_kohti))
+maha_jaanud_reisijad=$((mitu_reisijat % mitu_kohti))
 
-# Küsime kasutajalt kohtade arvu ühes bussis
-echo -n "Sisesta kohtade arv ühes bussis: "
-read kohad
+if [ $taidetud_bussid -eq 0 ] && [ $maha_jaanud_reisijad -gt 0 ]; then
+    taidetud_bussid=1
+    maha_jaanud_reisijad=0
+fi
 
-# Arvutame täielikult täidetud busside arvu
-taidetud_bussid=$(($reisijad / $kohad))
-
-# Arvutame maha jäänud reisijate arvu
-maha_jaanud=$(($reisijad % $kohad))
-
-# Väljastame tulemuse
-echo "Täidetud busse on: $taidetud_bussid"
-echo "Maha jäänud inimesi on: $maha_jaanud"
+echo "Busse täideti täielikult: $taidetud_bussid"
+echo "Maha jääb $maha_jaanud_reisijad reisijat"
