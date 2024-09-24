@@ -1,12 +1,15 @@
 #!/bin/bash
-# See skript kontrollib, kas kasutaja sisestatud täisarv on paaris või paaritu
+# See skript kontrollib, kas kasutaja sisestatud täisarv on paaris, paaritu või null.
 
 # Küsime kasutajalt täisarvu
 echo -n "Sisesta suvaline täisarv: "
 read arv
 
+# Kontrollime, kas arv on null
+if [ "$arv" -eq 0 ]; then
+    echo "Antud arv on null, see ei ole paaris ega paaritu"
 # Kontrollime, kas arv on paaris
-if [ $((arv % 2)) -eq 0 ]; then
+elif [ $((arv % 2)) -eq 0 ]; then
     echo "Antud arv on paaris"
 else
     echo "Antud arv on paaritu"
