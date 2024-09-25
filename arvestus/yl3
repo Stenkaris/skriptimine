@@ -1,0 +1,16 @@
+#!/bin/bash
+# Kirjeldus: See skript lubab kasutajal sisestada ridade arvu ja prindib seejärel kujundi, kus ridade arv väheneb järjest.
+
+# Küsib kasutajalt ridade arvu
+read -p "Sisesta ridade arv: " ridade_arv
+
+# Väljastab tärnid iga rea jaoks
+for (( i = ridade_arv; i > 0; i-- ))
+do
+    # Väljastab vastava arvu tärne
+    for (( j = 1; j <= i; j++ ))
+    do
+        echo -n "* "
+    done
+    echo ""  # Reavahetus
+done
