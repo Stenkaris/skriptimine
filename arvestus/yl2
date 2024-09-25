@@ -15,11 +15,17 @@ read osch
 # Tingimuslause valiku kontrollimiseks
 if [ "$osch" -eq 1 ]; then
     echo "Sa valisid: Liha ja kartulid"
+    echo "Brititoit on maitsev!"
+    echo "Head isu!"
 elif [ "$osch" -eq 2 ]; then
     echo "Sa valisid: Kala ja krõpsud"
+    echo "Väga maitsev, aga jälgi oma tervist!"
+    echo "Head isu!"
 elif [ "$osch" -eq 3 ]; then
     echo "Sa valisid: Supp ja salat"
+    echo "Nii tervislik ja igav..."
+    echo "Head isu!"
 else
     # Kui valik ei ole 1, 2 ega 3
-    echo "Mik sulle ei meeldi toidu valikud."
+    echo "Miks sulle ei meeldi ette antud toidu valikud?."
 fi
