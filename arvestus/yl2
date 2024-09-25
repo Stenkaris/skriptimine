@@ -1,0 +1,25 @@
+#!/bin/bash
+# Skript, mis lubab kasutajal valida söögi ja kasutab sisseehitatud if-tingimuslauset.
+
+# Muutuja osch algväärtustamine
+osch=0
+
+# Valikute kuvamine
+echo "1. Liha ja kartulid"
+echo "2. Kala ja krõpsud"
+echo "3. Supp ja salat"
+# Kasutajalt valiku küsimine
+echo -n "Vali söök [1, 2 või 3]: "
+read osch
+
+# Tingimuslause valiku kontrollimiseks
+if [ "$osch" -eq 1 ]; then
+    echo "Sa valisid: Liha ja kartulid"
+elif [ "$osch" -eq 2 ]; then
+    echo "Sa valisid: Kala ja krõpsud"
+elif [ "$osch" -eq 3 ]; then
+    echo "Sa valisid: Supp ja salat"
+else
+    # Kui valik ei ole 1, 2 ega 3
+    echo "Mik sulle ei meeldi toidu valikud."
+fi
