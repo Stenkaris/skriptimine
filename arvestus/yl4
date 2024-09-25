@@ -1,0 +1,24 @@
+#!/bin/bash
+# Küsib ridade arvu
+read -p "Sisesta ridade arv: " read_ridade_arv
+
+read -p "Sisesta tärnide arv yhes reas: " read_tarnide_arv
+
+for (( i = 1; i <= read_ridade_arv; i++ ))
+do
+    echo -n "$i. "  # Väljastab rea koos punktiga
+    if (( i == 1 || i == read_ridade_arv )); then
+        for (( j = 1; j <= read_tarnide_arv; j++ ))
+        do
+            echo -n "* "
+        done
+    else
+        echo -n "* "  # Esimene tärn
+        for (( j = 2; j < read_tarnide_arv; j++ ))
+        do
+            echo -n "  "  # Tühikud
+        done
+        echo -n "* "  # Viimane tärn
+    fi
+    echo ""
+done
