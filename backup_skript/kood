@@ -1,0 +1,4 @@
+#!/bin/bash
+cp /home/user/backup/stenkaris.docx /home/user/backup/stenkaris_backup.docx
+
+
